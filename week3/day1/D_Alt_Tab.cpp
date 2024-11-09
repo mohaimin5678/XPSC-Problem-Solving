@@ -13,20 +13,14 @@ int main(){
         string s;
         cin>>s;
         mp[s]=i;
-        // st.insert({s,i});
     }
     for(auto [x,y]:mp){
-        // cout<<x<<" "<<y<<endl;
         pq.push({y,x});
     }
-    // for(auto [x,y]:pq){
-    //     cout<<x<<" "<<y<<endl;
-    //     // st.insert({y,x});
-    // }
+
     while(!pq.empty()){
         auto p=pq.top();
         pq.pop();
-        // cout<<p.first<<" "<<p.second<<endl;
         int len=p.second.size();
         cout<<p.second[len-2]<<p.second[len-1];
     }
