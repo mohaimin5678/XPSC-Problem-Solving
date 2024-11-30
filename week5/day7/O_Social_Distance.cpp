@@ -33,6 +33,7 @@ int main(){
     int t;
     cin>>t;
     while(t--){
+        //using two pointers sliding window technique
         mohaimin();
     }
     return 0;
