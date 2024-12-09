@@ -27,3 +27,15 @@ int main(){
     }
     return 0;
 }
+/*
+we have to off 1 bit at a time to create the array element. 
+And we'll start from right to left to make it strictly lower. 
+why only 1 bit on-off? so that the OR operation can be N. 
+for n=23
+10111 ->23
+10110 ->22
+10101 ->21
+10011 ->19
+00111 ->7
+any other way can cause the OR operation result!=23
+*/
