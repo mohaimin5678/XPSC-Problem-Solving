@@ -38,4 +38,12 @@ for n=23
 10011 ->19
 00111 ->7
 any other way can cause the OR operation result!=23
+
+here __lg(n) will give us MSB in O(1)
+And using deque providing us the independence to push in front.
+if we used vector then we'd have the array in decreasing order,
+then we had to reverse it. So to minimize the runtime, we can
+simply use deque here. 
+after the loop, we have to add n in the end to fulfill the array. 
+also we can't push 0. because the condition said so. 
 */
