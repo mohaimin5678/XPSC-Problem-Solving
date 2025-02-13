@@ -1,0 +1,32 @@
+class Solution {
+    void fun(vector<int>& nums,vector<int>& a,vector<vector<int>>& ans,int frq[]){
+        if(nums.size()==a.size()){      //base case
+            ans.push_back(a);       //permutation hoye gese so ans e push korlam
+            return;
+        }
+        for(int i=0;i<nums.size();i++){     //serially vector er elements check korbo
+            if(frq[i]==0){                  //na newa hoile vitore dhukbo
+                a.push_back(nums[i]);       //value ta A te push korbo
+                frq[i]=1;                  //frq 1 kore diye bujhabo je value ta nisi
+                fun(nums,a,ans,frq);        //porer recursion e current A pathay dibo
+                a.pop_back(); //recursion tar kaj done kore ashle A theke val delete
+                frq[i]=0;           //frq tao abar 0 kore dibo 
+            }
+        }
+    }
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> ans;
+        
+        //recursin running time e ei vector diyei amra full push-pop er kaj korbo
+        vector<int> a;
+
+        int frq[nums.size()];  //element ta newa hoise ki hoy nai shetar track rakhbo
+        
+        for(int i=0;i<nums.size();i++){
+            frq[i]=0;
+        }
+        fun(nums,a,ans,frq);
+        return ans;
+    }
+};
