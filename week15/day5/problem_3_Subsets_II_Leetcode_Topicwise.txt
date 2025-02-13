@@ -1,0 +1,41 @@
+class Solution {
+    void fun(vector<int>& nums,vector<int>& v,set<vector<int>>& ans,int frq[],int x){
+        for(int i=x;i<nums.size();i++){
+            if(frq[i]==0){
+                frq[i]=1;
+                v.push_back(nums[i]);
+                ans.insert(v);
+                fun(nums,v,ans,frq,i+1);
+                v.pop_back();
+                frq[i]=0;
+            }
+        }
+    }
+public:
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        set<vector<int>> ans;
+        sort(nums.begin(),nums.end());
+        vector<int> v;
+        int frq[nums.size()];
+        for(int i=0;i<nums.size();i++){
+            frq[i]=0;
+        }
+        fun(nums,v,ans,frq,0);
+        //if(v.size()==0) cout<<"YES"<<endl;
+        vector<vector<int>> ans2;
+        ans.insert(v);
+        for(auto x:ans){
+            ans2.push_back(x);
+        }
+        return ans2;
+    }
+};
+/*
+1)set of vector nisi intially jate duplicate reduce hoy
+2)shurute sort kore felsi jate duplicate elements gula side by side chole ashe
+3)vector v & frq nisi and fun function e 0th index diye pathay disi
+4)for loop diye every index e jabo & frq 0 thakle value ta V te push kore ans e V insert korb & frq=1 kore index+1 recursive function e pathay dibo. recursive function er kaj shesh hole value pop kore frq 0 kore felbo.
+5)loop end hole recursion o end hoye jabe. 
+6) ans e alada kore empty set push korte hobe. 
+7) ans jehetu set of vector tai vector of vector ans2 te shob ans transfer kore return kore dibo ans2. 
+*/
