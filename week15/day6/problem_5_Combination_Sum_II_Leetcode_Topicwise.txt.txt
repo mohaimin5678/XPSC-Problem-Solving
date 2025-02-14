@@ -27,13 +27,6 @@ public:
     }
 };
 /*
-problem 4: Combination Sum
-ekhane repeatedly same value select kora jabe tai recursion e i tai pathay dicche jate repeatedly
-value ta nite pare. since sort kore candidates pathacchi so duplicate subset howar possibility 
-nai (also values are distinct). 
-target er beshi hoye gele save na korei return & target er equal hoile ans e save kore return. 
-
-problem 5: Combination Sum II
 ekhane repeatedly same value select kora jabe na tai recursion e i+1 pathay dicchi jate next value ta nite pare. Jodio sort kore candidates pathacchi but still values same thakte pare tai 
 check korbo for loop e condition diye je jodi duplicate value pawa jay tahole sheta ignore kore
 next value te jaite. 
