@@ -13,31 +13,26 @@ void mohaimin(){
     for(int i=0;i<s.size();i++){
         mp[s[i]]++;
     }
-    int mx=INT_MIN;
-    char c;
+    int ans=INT_MAX;
     for(auto [x,y]:mp){
-        if(mx<y){
-            mx=y;
-            c=x;
-        }
-    }
-    vector<int> dis;
-    int d=0;
-    for(int i=0;i<s.size();i++){
-        if(s[i]==c){
-            dis.push_back(i-d+1);
-            d=i+1;
-        }
-        if(i==s.size()-1){
-            if(d!=s.size()){
-                dis.push_back(i-d+1);
-                // d=i;
+        int dis=0;
+        int largest=INT_MIN;
+        for(int i=0;i<s.size();i++){
+            if(s[i]!=x){
+                dis++;
+            }
+            else{
+                largest=max(largest,dis);
+                dis=0;
             }
         }
-    }
-    int ans=0;
-    for(int x:dis){
-        ans+=log2(x);
+        largest=max(largest,dis);
+        int op=0;
+        while(largest>0){
+            op++;
+            largest/=2;
+        }
+        ans=min(op,ans);
     }
     cout<<ans<<ln;
 }
@@ -51,3 +46,12 @@ int main(){
         mohaimin();
     }
 }
+/*
+we need to find the biggest distance & calculate how many operation
+it will be needed to erase them. using log2(dis) won't work because
+log2(1)=0 which won't help to solve this problem. 
+so we'll check for all existing characters & for each characters we'll
+check the biggest distance among them & calculate the operations. 
+then for answer we'll take the one that took minimum numbers of 
+operations. 
+*/
