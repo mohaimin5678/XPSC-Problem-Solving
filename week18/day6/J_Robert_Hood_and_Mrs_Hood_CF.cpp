@@ -83,7 +83,7 @@ when i=1, first=1 & last=1+d-1=1+2-1=2
         pq=[3 3] & l++;
         l=2<k(4) jobs[2].first=4 > last so break;
     while 2:
-        pq size>0 but pq.top()==3 > i(1) so break;
+        pq size>0 but pq.top()=3 > i(1) so break;
     now mx<pq.size() so mx=2 & bro=1 
     AND mn>pq.size() so mn=2 & mom=1
 
@@ -91,6 +91,72 @@ now i=2, first=2 & last=2+d-1=2+2-1=3
     while 1: 
         l=2<k(4) jobs[2].first=4 > last so break;
     while 2:
-        pq size>0 but pq.top()==3 > i(2) so break;
+        pq size>0 but pq.top()=3 > i(2) so break;
     no changes on mx & mn so bro & mom remain same. 
+
+now i=3, first=3 & last=3+d-1=4
+    while 1:
+        l=2<k(4) jobs[2].first=4 == last so push jobs[2].sec on pq
+        pq=[3 3 8] & l++;
+        l=3<k(4) jobs[3].first=7 > last so break;
+    while 2:
+        pq size>0 but pq.top()=3 == i(3) so break;
+    now mx<pq.size() so mx=3 & bro=3
+    but mn<pq.size() so mn=2 & mom=1
+
+now i=4, first=4 & last=5
+    while 1:
+        l=3<k(4) jobs[3].first=7 > last so break;
+    while 2:
+        pq size>0 but pq.top()=3 <i(4) so pq.pop()
+        now pq=[3 8] again but pq.top()=3 <i(4) so pq.pop()
+        now pq=[8] now pq.top()=8 > i(4) so break;
+    now mx>pq.size() so no change &  mx=3 & bro=3
+    but mn>pq.size() so mn=1 & mom=4
+
+now i=5, first=5 & last=6
+    while 1:
+        l=3<k(4) jobs[3].first=7 > last so break;
+    while 2:
+        pq size>0 but pq.top()=8 > i(5) so break;
+    mx>pq.size() so no change for mx so mx=3 & bro=3
+    mn<pq.size() so no change for mn so mn=1 & mom=4
+
+now i=6, first=6 & last=7
+    while 1: 
+        l=3<k(4) jobs[3].first=7 == last so push jobs[3].sec on pq
+        pq=[8 9] l++;
+        l==k(4) break;
+    while 2: 
+        pq size>0 but pq.top()=8 > i(6) so break;
+    mx>pq.size() so no change for mx so mx=3 & bro=3
+    mn<pq.size() so no change for mn so mn=1 & mom=4
+
+now i=7, first=7 & last=8
+    while 1: 
+        l==k(4) break;
+    while 2: 
+        pq size>0 but pq.top()=8 > i(7) so break;
+    mx>pq.size() so no change for mx so mx=3 & bro=3
+    mn<pq.size() so no change for mn so mn=1 & mom=4
+
+now i=8, first=8 & last=9
+    while 1: 
+        l==k(4) break;
+    while 2:
+        pq size>0 but pq.top()=8 == i(8) so break;
+    mx>pq.size() so no change for mx so mx=3 & bro=3
+    mn<pq.size() so no change for mn so mn=1 & mom=4
+
+now i=9, first=9 & last=10
+    while 1: 
+        l==k(4) break;
+    while 2:
+        pq size>0 but pq.top()==8 < i(9) so so pq.pop()
+        now pq=[9] & pq.top()=9 == i(9) so break;
+    mx>pq.size() so no change for mx so mx=3 & bro=3
+    mn==pq.size() so no change for mn so mn=1 & mom=4
+
+
+so final answer: bro=3 & mom=4
 */
