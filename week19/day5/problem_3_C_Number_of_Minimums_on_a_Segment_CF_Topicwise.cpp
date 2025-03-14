@@ -67,8 +67,8 @@ node query(int n,int b,int e,int i,int j){     //O(logN)
         //also count e contribute na korar jonno 0 pathabo count parameter e
     }
     if(b>=i && e<=j){   //"inside" segment
-        return t[n];    //particular segment query range er fully vitore
-                        //tai oi segment er sum tai return diye dicchi
+        return t[n];    //fully range er vitore thakle min,min_count 
+                        //tai return diye dicchi
     }
     //"intersect" segment
     int mid=(b+e)/2;
